@@ -1,45 +1,34 @@
-// import config, { nodeEnv, logStarts } from './config';
+import config from './config';
+import apiRouter from './api'
+//import fs from 'fs';
+import express from 'express';
 
-// console.log(config, nodeEnv);
-// logStarts("Yo, Mr. White!");
+const server = express();
 
-// source ~/profile
-// export NVM_DIR="/Users/bojanjovanovic/.nvm"
-// [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+server.get('/', (req, res) => {
+	res.send("Hello Express");
+});
 
-// export PATH=$PATH:./node_modules/.bin 
+server.use('/api', apiRouter);
+server.use(express.static('public'));
 
-// ./node_modules/.bin/babel-node server.js
 
-// import https from 'https';
+// server.get('/about.html', (req, res) => {
+// 	res.send("about page");
+// });
 
-// https.get('https://www.lynda.com', res => {
-// 	console.log('Response status code: ', res.statusCode);
-// 	res.on('data', chunk => {
-// 		console.log(chunk.toString());
+// server.get('/about.html', (req, res) => {
+// 	fs.readFile('./about.html', (err, data) => {
+// 		res.send(data.toString());
 // 	});
 // });
 
-import http from 'http';
-
-const server = http.createServer((req, res) => {
-	res.write("Hello HTTP!\n");
-	setTimeout(() => {
-		res.write('I can stream!\n');
-		res.end();
-	}, 3000);
+server.listen(config.port, () => {
+	console.info('Express listening on port', config.port);
 });
 
-server.listen(8080);
 
-// server.on('request', (req, res) => {
-// 	res.write("Hello HTTP!\n");
-// 	setTimeout(() => {
-// 		res.write('I can stream!\n');
-// 		res.end();
-// 	}, 3000);
-// });
-
-
-// ./node_modules/.bin/babel-node server.js
+// npm start
 // curl http://localhost:8080/
+
+// curl http://localhost:8080/about.html
