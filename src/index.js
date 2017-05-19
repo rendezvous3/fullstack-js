@@ -6,19 +6,26 @@ import ReactDOM from 'react-dom';
 // 	document.getElementById('root')
 // );
 
-const color = Math.random() > 0.5 ? 'green' : 'red';
+const color = Math.random() > 0.5 ? 'cyan' : 'lightblue';
+
+const App = (props) => {
+	return (
+		<h2 className="text-center" style={{ color:color }}>
+			{props.headerMessage}
+		</h2>
+	);
+};
+
+App.propTypes = {
+	headerMessage: React.PropTypes.string.isRequired 
+};
+
+App.defaultProps = {
+	headerMessage: "Hello!"
+};
 
 ReactDOM.render(
-	<h2 style={{ color:color }}>
-		Hello React with JSX! -- {Math.random()}
-	</h2>,
-	document.getElementById('root')
-);
-
-ReactDOM.render(
-	<h2 className="text-center">
-		Hello React with JSX!
-	</h2>,
+	<App headerMessage="Hello props!" />,
 	document.getElementById('root')
 );
 
