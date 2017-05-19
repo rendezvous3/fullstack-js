@@ -1,20 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import data from './testData';
+console.log(data);
+
 import App from './components/App';
 
 ReactDOM.render(
-	<App />,
+	<App contests={data.contests} />,
 	document.getElementById('root')
 );
-
-
-// setTimeout(() => {
-// 	ReactDOM.render(
-// 	<h1>...</h1>,
-// 	document.getElementById('root')
-// 	);
-// }, 3000)
 
 // https://packagecontrol.io/docs/usage
 // https://github.com/nwoltman/sublime-ejs
