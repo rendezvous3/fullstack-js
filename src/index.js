@@ -8,6 +8,14 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
+
+// setTimeout(() => {
+// 	ReactDOM.render(
+// 	<h1>...</h1>,
+// 	document.getElementById('root')
+// 	);
+// }, 3000)
+
 // https://packagecontrol.io/docs/usage
 // https://github.com/nwoltman/sublime-ejs
 
