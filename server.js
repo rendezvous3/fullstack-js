@@ -14,6 +14,8 @@ server.use(sassMiddleware({
 
 server.set('view engine', 'ejs');
 
+import './serverRender';
+
 server.get('/', (req, res) => {
 	//res.send("Hello Express");
 	res.render('index', {
@@ -24,7 +26,7 @@ server.get('/', (req, res) => {
 server.use('/api', apiRouter);
 server.use(express.static('public'));
 
-server.listen(config.port, () => {
+server.listen(config.port, config.host, () => {
 	console.info('Express listening on port', config.port);
 });
 
@@ -32,3 +34,8 @@ server.listen(config.port, () => {
 // npm start
 // curl http://localhost:8080/
 // npm i -S ejs
+// rendering data from server side vs api
+// Chrome 3 vertical dots, Customize and control DevTools, settings, Debugger, Disable JavaScript
+// our app gets empty, only thing rendered is ... from server.get('/')
+// npm start
+// curl http://localhost:8080/
