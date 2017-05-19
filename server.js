@@ -10,7 +10,7 @@ server.set('view engine', 'ejs');
 server.get('/', (req, res) => {
 	//res.send("Hello Express");
 	res.render('index', {
-		content: "Hello EJS and <em>Express</em>"
+		content: "..."
 	});
 });
 
