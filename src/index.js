@@ -1,15 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import data from './testData';
-// console.log(data);
-
 import App from './components/App';
 
 ReactDOM.render(
-	<App />,
-	document.getElementById('root')
+  <App initialContests={[]} />,
+  document.getElementById('root')
 );
+
+// axios.get('/api/contests')
+// 	.then(resp => {
+// 		//console.log(resp.data.contests)
+// 		// this.setState({
+// 		// 	contests: resp.data.contests
+// 		// });
+// 		ReactDOM.render(
+// 		<App initialContests={resp.data.contests} />,
+// 		document.getElementById('root')
+// 		);
+// 	})
+// 	.catch(console.error);
+
+
 
 
 // Console
